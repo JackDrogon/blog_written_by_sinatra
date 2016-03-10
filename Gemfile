@@ -2,9 +2,9 @@
 source "http://rubygems.org"
 
 gem 'sinatra'
+gem 'thin'
 # gem 'haml'
 # gem 'rdiscount'
-# gem 'thin'
 # gem 'shotgun'
 
 # group :test do
