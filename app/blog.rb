@@ -9,13 +9,19 @@ require 'tilt/erubis'
 
 require_relative 'blog_config.rb'
 
+set :public_folder, File.dirname(__FILE__) + '/../public'
 
 get '/' do
-  "Hello, Blog!"
+  # "Hello, Blog!"
+  redirect '/index.html'
 end
 
 get '/env' do
   env.inspect
+end
+
+get '/lists' do
+  redirect '/articles'
 end
 
 get '/articles' do
