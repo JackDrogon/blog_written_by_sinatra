@@ -11,7 +11,7 @@ require_relative 'blog_config.rb'
 
 set :public_folder, File.dirname(__FILE__) + '/../public'
 
-get '/' do
+get %r{/(index)?} do
   # "Hello, Blog!"
   redirect '/index.html'
 end
