@@ -1,0 +1,5 @@
+<h1><center>List Articles</center></h1> </br>
+<% @articles.each do |article| %>
+  <%= "<a href=\"/articles/#{article}\"> #{article} </a> <br />" %>
+  <%# <%= link "/articles/#{article}", "#{article}" %1> %>
+<% end %>

@@ -2,13 +2,13 @@
 source "http://rubygems.org"
 
 gem 'sinatra'
+# gem 'sinatra-contrib'
 gem 'thin'
 gem 'rdiscount'
 gem 'tilt'
 gem 'redcarpet'
 gem 'erubis'
 # gem 'haml'
-# gem 'rdiscount'
 # gem 'shotgun'
 
 # group :test do

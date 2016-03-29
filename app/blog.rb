@@ -10,8 +10,9 @@ require 'tilt/erubis'
 require_relative 'blog_config.rb'
 
 set :public_folder, File.dirname(__FILE__) + '/../public'
+set :views, File.dirname(__FILE__) + "/../views"
 
-get %r{/(index)?} do
+get %r{^/(index)?$} do
   # "Hello, Blog!"
   redirect '/index.html'
 end
@@ -26,14 +27,10 @@ end
 
 get '/articles' do
   # FIXME: Rewrite
-  article = <<-ARTICLE
-  <h1><center>List Articles</center></h1> </br>
-  ARTICLE
-  Dir.entries(Articles).select {|p| p[0] != "." }
-     .sort {|a, b| b <=> a}
-     .each {|a| article << "<a href=\"/articles/#{a}\"> #{a} </a> <br />\n"}
-
-  article
+  @articles = Dir.entries(Articles).select {|p| p[0] != "." }
+                .sort {|a, b| b <=> a}
+     # .each {|a| article << "<a href=\"/articles/#{a}\"> #{a} </a> <br />\n"}
+  erb :articles
 end
 
 get '/articles/:name' do
@@ -53,8 +50,4 @@ get '/articles/:name' do
 end
 
 __END__
-
-@@blog
-
-<h1> Blog </h1>
-<%= @article %>
+# TODO: image url helper
